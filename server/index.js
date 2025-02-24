@@ -6,8 +6,7 @@ import { Server } from 'socket.io'
 import { createServer } from 'node:http'
 dotenv.config()
 
-dotenv.config()
-console.log("DB_TOKEN:", process.env.DB_TOKEN);
+console.log("DB_TOKEN:", process.env.AUTO_TOKEN);
 
 const port = process.env.PORT ?? 3001
 
@@ -21,6 +20,12 @@ const db = createClient({
   url: process.env.DATABASE_URL,
   authToken: process.env.DB_TOKEN
 })
+
+
+
+
+
+
 
 await db.execute(`
   CREATE TABLE IF NOT EXISTS messages (
